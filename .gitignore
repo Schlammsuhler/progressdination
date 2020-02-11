@@ -22,3 +22,9 @@
 
 # Ignore .env files as they are personal
 /.env
+
+/data/*
+/logs/*
+.DS_Store
+.editorconfig
+.gitattributes
