@@ -17,13 +17,14 @@ RUN apt-get -y update && \
     apt-get -y --no-install-recommends install nano wget dialog libsqlite3-dev libsqlite3-0 && \
     apt-get -y --no-install-recommends install mysql-client zlib1g-dev libzip-dev libicu-dev && \
     apt-get -y --no-install-recommends install --fix-missing apt-utils build-essential git curl && \
-    apt-get -y --no-install-recommends install --fix-missing libcurl3 libcurl3-dev zip openssl && \
+    apt-get -y --no-install-recommends install --fix-missing libcurl3 libcurl3-dev libpng-dev zip openssl && \
     rm -rf /var/lib/apt/lists/* && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN docker-php-ext-install pdo_mysql && \
-    docker-php-ext-install mysqli && \
-    docker-php-ext-install opcache
+RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install gd
+RUN docker-php-ext-install opcache
 
 # Enable apache modules
 RUN a2enmod rewrite headers
