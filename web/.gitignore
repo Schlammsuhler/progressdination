@@ -9,3 +9,5 @@ index.php
 robots.txt
 update.php
 web.config
+.csslintrc
+.eslintrc.json

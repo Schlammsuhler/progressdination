@@ -1,0 +1,22 @@
+uuid: b569d8c6-6b48-4629-8b7c-95e756183109
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - progress
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: progress_help
+theme: progress
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

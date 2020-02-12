@@ -1,0 +1,23 @@
+uuid: c2422fec-0645-4874-b538-99276ed40806
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - progress
+_core:
+  default_config_hash: Q-4EcGAsu26ICu4ejEz0uE1zv4akpiaOsizxgZfAmEw
+id: progress_search
+theme: progress
+region: sidebar_first
+weight: -1
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+  page_id: node_search
+visibility: {  }
