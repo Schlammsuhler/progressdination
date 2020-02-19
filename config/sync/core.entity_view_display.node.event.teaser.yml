@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.event.field_start_time
     - node.type.event
   module:
+    - datetime
     - text
     - user
 id: node.event.teaser
@@ -16,17 +17,25 @@ bundle: event
 mode: teaser
 content:
   body:
-    label: hidden
     type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
+    weight: 2
     region: content
+    label: hidden
+    settings:
+      trim_length: 140
+    third_party_settings: {  }
+  field_start_time:
+    type: datetime_default
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: short
+    third_party_settings: {  }
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
-hidden:
-  field_start_time: true
+hidden: {  }
