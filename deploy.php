@@ -12,6 +12,8 @@ task('deploy', [
     'deploy:shared',
     'deploy:vendors',
     'deploy:writable',
+    'npm:install',
+    'npm:build',
     //drush
     'deploy:symlink',
     'opcache:reset',
@@ -53,6 +55,36 @@ task('opcache:reset', function () {
 });
 task('drush:cachereset', function () {
   run('cd {{release_path}} && vendor/bin/drush cr');
+});
+
+set('bin/npm', function () {
+  return run('which npm');
+});
+
+desc('Install npm packages');
+task('npm:install', function () {
+  if (has('previous_release')) {
+    if (test('[ -d {{previous_release}}/node_modules ]')) {
+      run('cp -R {{previous_release}}/node_modules {{release_path}}');
+
+      // If package.json is unmodified, then skip running `npm install`
+      if (!run('diff {{previous_release}}/package.json {{release_path}}/package.json')) {
+        return;
+      }
+    }
+  }
+  run("cd {{release_path}} && {{bin/npm}} install");
+});
+
+
+desc('Install npm packages with a clean slate');
+task('npm:ci', function () {
+  run("cd {{release_path}} && {{bin/npm}} ci");
+});
+
+desc('Install npm packages with a clean slate');
+task('npm:build', function () {
+  run("cd {{release_path}} && {{bin/npm}} run build");
 });
 
 after('deploy:failed', 'deploy:unlock');

@@ -1,4 +1,4 @@
-name: Progress Subtheme
+name: Progressdination Theme
 type: theme
 description: 'Basic structure for a Bootstrap Barrio SubTheme.'
 # version: VERSION
@@ -6,8 +6,7 @@ description: 'Basic structure for a Bootstrap Barrio SubTheme.'
 base theme: bootstrap_barrio
 
 libraries:
-  - bootstrap_barrio_subtheme/bootstrap_cdn
-  - bootstrap_barrio_subtheme/global-styling
+  - progress/global-styling
 
 regions:
   top_header: 'Top Header'

@@ -22,3 +22,5 @@
 .DS_Store
 .editorconfig
 .gitattributes
+node_modules
+/web/themes/**/dist
